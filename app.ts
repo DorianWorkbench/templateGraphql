@@ -11,7 +11,7 @@ const graphqlClient:GraphqlClient = new GraphqlClient(new UserService());
 
 app.use('/graphql', graphqlHTTP(async()=>({ schema: await graphqlClient.generateGraphqlSchema() })));
 
-// TODO: Check how to 
+// TODO: Check how to handle global error (maybe create second middleware)
 app.use((err:CustomError, req:Request, res:Response, next:NextFunction)=>{
     return res.status(err.statusCode).json({
         error:err.render()
