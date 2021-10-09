@@ -1,5 +1,4 @@
 import { UserCreateDTO } from "../dto/UserDTO";
-import { BddError } from "../errors/BddError";
 import { MysqlClient } from "../tools/MysqlClient";
 import { IUser } from "./dataModels/IUser";
 
