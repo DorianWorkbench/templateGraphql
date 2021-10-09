@@ -1,5 +1,5 @@
 import { GraphQLFieldConfigMap, GraphQLInt, GraphQLList } from "graphql";
-import { UserType } from "../types/User";
+import { UserType } from "../types/index";
 import { UserService } from "../../service/index";
 
 export class UserResolver{

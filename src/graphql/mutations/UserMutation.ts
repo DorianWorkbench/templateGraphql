@@ -1,5 +1,5 @@
 import { GraphQLFieldConfigMap, GraphQLInt, GraphQLList, GraphQLString } from "graphql"
-import { UserType } from "../types/User";
+import { UserType } from "../types/index";
 import { UserService } from "../../service/index";
 import { UserCreateDTO } from "../../dto/UserDTO";
 
