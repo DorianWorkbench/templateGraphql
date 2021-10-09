@@ -8,7 +8,7 @@ interface BddConfig {
 
 export function configBdd():BddConfig{
     return {
-        database:process.env.DB_HOST!,
+        database:process.env.DB_DATABASE!,
         host:process.env.DB_HOST!,
         password:process.env.DB_PASSWORD!,
         port:Number.parseInt(process.env.DB_PORT!),

@@ -1,20 +1,23 @@
 import { UserCreateDTO } from "../dto/UserDTO";
-import { users } from "../graphql/example";
+import { UserRepository } from "../repository/UserRepository";
 
 export class UserService{
-    // TODO:Inject UserRepository.
-    constructor(){}
 
-    async createUser(userCreateDTO:UserCreateDTO):Promise<Array<Object>>{
-        users.push(userCreateDTO);
-        return users;
+    private userRepository:UserRepository;
+
+    constructor(userRepository:UserRepository){
+        this.userRepository = userRepository;
+    }
+    // TODO : Check if should we permute IUser return by interface object contract. (Repo or Service ?).
+    async createUser(userCreateDTO:UserCreateDTO){
+        return await this.userRepository.createUser(userCreateDTO);
     }
 
     async getUser(id:number){
-        return users.filter((e)=>e.id === id)[0];
+        return await this.userRepository.getUser(id);
     }
 
-    async getAllUsers():Promise<Array<Object>>{
-        return users;
+    async getAllUsers(){
+        return await this.userRepository.getAllUser();
     }
 }

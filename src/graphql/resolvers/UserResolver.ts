@@ -1,6 +1,6 @@
 import { GraphQLFieldConfigMap, GraphQLInt, GraphQLList } from "graphql";
 import { UserType } from "../types/User";
-import { UserService } from "../../service/UserService";
+import { UserService } from "../../service/index";
 
 export class UserResolver{
     private userService:UserService;
@@ -27,10 +27,8 @@ export class UserResolver{
                 args:{
                     id:{type:GraphQLInt}
                 },
-                async resolve(parent, args){
-                    return await that.userService.getUser(args.id);
-                }
-            }  
+                async resolve(parent, args){return await that.userService.getUser(args.id);}
+            }
         };   
     }
 }

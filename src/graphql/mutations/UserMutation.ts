@@ -1,6 +1,6 @@
 import { GraphQLFieldConfigMap, GraphQLInt, GraphQLList, GraphQLString } from "graphql"
 import { UserType } from "../types/User";
-import { UserService } from "../../service/UserService";
+import { UserService } from "../../service/index";
 import { UserCreateDTO } from "../../dto/UserDTO";
 
 export class UserMutation {
@@ -15,7 +15,7 @@ export class UserMutation {
         let that = this;
         return { 
             createUser:{
-                type:new GraphQLList(UserType),
+                type: UserType,
                 args:{
                     id: {type:GraphQLInt},
                     name: {type:GraphQLString},
@@ -29,7 +29,7 @@ export class UserMutation {
                         age:args.age,
                         email:args.email,
                     }
-                    await that.userService.createUser(userCreateDTO);
+                    return await that.userService.createUser(userCreateDTO);
                 }
             }
         }

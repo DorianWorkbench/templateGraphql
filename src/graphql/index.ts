@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLSchema } from "graphql";
 import { UserMutation } from "./mutations/UserMutation";
 import {UserResolver} from "./resolvers/UserResolver";
-import { UserService } from "../service/UserService";
+import { UserService } from "../service/index";
 
 export class GraphqlClient{
     
